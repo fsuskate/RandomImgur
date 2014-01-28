@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+{
+    NSDictionary *imageDict;
+    NSMutableArray *imageStrings;
+    IBOutlet UIImageView *imageView;
+}
+
+-(IBAction)getRandomImage:(id)sender;
 
 @end
