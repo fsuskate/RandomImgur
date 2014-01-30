@@ -10,11 +10,13 @@
 
 @interface ViewController : UIViewController
 {
+    NSMutableArray *imageItemsArray;
     NSDictionary *imageDict;
-    NSMutableArray *imageStrings;
     IBOutlet UIImageView *imageView;
+    int currentIndex;
 }
 
 -(IBAction)getRandomImage:(id)sender;
+-(IBAction)showImageInfo:(id)sender;
 
 @end
