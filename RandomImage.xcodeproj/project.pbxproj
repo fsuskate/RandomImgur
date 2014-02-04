@@ -21,6 +21,7 @@
 		12C46507189751CE0095F81D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12C464E9189751CE0095F81D /* UIKit.framework */; };
 		12C4650F189751CE0095F81D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 12C4650D189751CE0095F81D /* InfoPlist.strings */; };
 		12C46511189751CE0095F81D /* RandomImageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C46510189751CE0095F81D /* RandomImageTests.m */; };
+		12C4651F189A0D400095F81D /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C4651E189A0D400095F81D /* DetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		12C4650C189751CE0095F81D /* RandomImageTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RandomImageTests-Info.plist"; sourceTree = "<group>"; };
 		12C4650E189751CE0095F81D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		12C46510189751CE0095F81D /* RandomImageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RandomImageTests.m; sourceTree = "<group>"; };
+		12C4651D189A0D400095F81D /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		12C4651E189A0D400095F81D /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				12C464FB189751CE0095F81D /* ViewController.m */,
 				12C464FD189751CE0095F81D /* Images.xcassets */,
 				12C464EC189751CE0095F81D /* Supporting Files */,
+				12C4651D189A0D400095F81D /* DetailsViewController.h */,
+				12C4651E189A0D400095F81D /* DetailsViewController.m */,
 			);
 			path = RandomImage;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 				12C464FC189751CE0095F81D /* ViewController.m in Sources */,
 				12C464F6189751CE0095F81D /* AppDelegate.m in Sources */,
 				12C464F2189751CE0095F81D /* main.m in Sources */,
+				12C4651F189A0D400095F81D /* DetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +466,7 @@
 				12C46516189751CE0095F81D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		12C46517189751CE0095F81D /* Build configuration list for PBXNativeTarget "RandomImageTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +475,7 @@
 				12C46519189751CE0095F81D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

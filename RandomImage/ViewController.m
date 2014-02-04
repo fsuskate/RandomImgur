@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "DetailsViewController.h"
+#import "AppDelegate.h"
 
 @interface ViewController ()
 
@@ -82,12 +84,15 @@
     {
         currentIndex = rand() % imageItemsArray.count;
         NSDictionary *itemData = [imageItemsArray objectAtIndex:currentIndex];
-        
-        NSString *imageUrlString = [itemData objectForKey:@"link"];
-        NSURL *url = [NSURL URLWithString:imageUrlString];
-        NSData *data = [[NSData alloc] initWithContentsOfURL:url];
-        UIImage *image = [UIImage imageWithData:data];
-        [imageView setImage:image];
+        Boolean is_album = [[itemData objectForKey:@"is_album"] boolValue];
+        if (is_album == false)
+        {
+            NSString *imageUrlString = [itemData objectForKey:@"link"];
+            NSURL *url = [NSURL URLWithString:imageUrlString];
+            NSData *data = [[NSData alloc] initWithContentsOfURL:url];
+            UIImage *image = [UIImage imageWithData:data];
+            [imageView setImage:image];
+        }
     }
 }
 
@@ -96,24 +101,36 @@
     [self getRanDomImageData];
 }
 
+
 -(IBAction)showImageInfo:(id)sender
 {
-    NSDictionary *itemData = [imageItemsArray objectAtIndex:currentIndex];
-    NSString *message = [NSString stringWithFormat:@"Title: %@\nSection: %@\nLink: %@\nHeight: %@\nWidth: %@\nSize: %@",
-                         [itemData objectForKey:@"title"],
-                         [itemData objectForKey:@"section"],
-                         [itemData objectForKey:@"link"],
-                         [itemData objectForKey:@"height"],
-                         [itemData objectForKey:@"width"],
-                         [itemData objectForKey:@"size"]];
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Image Info" message:message delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-    [alertView show];
+    [self performSegueWithIdentifier:@"ShowDetails" sender:self];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"ShowDetails"])
+    {
+        NSDictionary *itemData = [imageItemsArray objectAtIndex:currentIndex];
+        DetailsViewController *detailViewController = [segue destinationViewController];
+        if (itemData != nil && detailViewController != nil)
+        {
+            detailViewController.titleText = [itemData objectForKey:@"title"];
+            detailViewController.sectionText = [itemData objectForKey:@"section"];
+            detailViewController.linkText = [itemData objectForKey:@"link"];
+            
+            int height = [[itemData objectForKey:@"height"] integerValue];
+            detailViewController.heightText = [NSString stringWithFormat:@"%d", height];
+            detailViewController.widthText = [NSString stringWithFormat:@"%d", [[itemData objectForKey:@"width"] integerValue]];
+            detailViewController.sizeText = [NSString stringWithFormat:@"%d", [[itemData objectForKey:@"size"] integerValue]];
+        }
+    }
 }
 
 @end
